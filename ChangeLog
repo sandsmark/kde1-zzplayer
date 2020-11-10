@@ -1,0 +1,23 @@
+0.4 -   Jan 17 2000
+	Add filter mpg when open file
+	Add full support 24 bpp 32 bpp
+	Update autoconf script for SDL and smpeg
+
+0.3 -   Jan 3 2000
+	Beta fullscreen option
+	Separate smpeg lib and zzplayer
+	The video window do a good size
+	Add sound slider
+	Add history files
+	Add a title to the video window
+
+0.2 - 	Nov 15 1999
+	Add nice icons and video sample - thanks cougar ;-)
+	Icons path problem resolved
+	Add many options like double size, disable audio, loop
+	Add Help button
+	Change to smpeg-0.3.1
+	Little bug at quit fixed
+	
+0.1 - 	Nov 7 1999
+	Initial version

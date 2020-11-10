@@ -1,0 +1,65 @@
+ZZplayer v0.2
+Nicolas Vignal <nicolas.vignal@fnac.net>
+----------------------------------------------------------------------
+NOTE!
+This program is in development, so comments are welcome.
+Bug reports, and other feedback, should be sent to <nicolas.vignal@fnac.net>.
+Read the BUGS and TODO file before reporting a bug/request. Also
+make sure you're using the latest version.
+
+
+DESCRIPTION :
+ZZplayer is a MPEG-I video player for the KDE environement.
+He is based on SMPEG library. You can play video in loop, with double size or
+without audio.
+
+
+
+SMPEG is a free MPEG1 video player library with sound support.  Video playback
+is based on the ubiquitous Berkeley MPEG player, mpeg_play v2.2.  Audio is
+played through a slightly modified mpegsound library, part of Splay v0.8.2.
+SMPEG supports MPEG audio (MP3), MPEG-1 video, and MPEG system streams.
+This library is distributed under the GNU Library Public License (LGPL)
+version 2.
+
+
+Known Issues:
+
+	The MPEG decoding is a fairly slow and mathematically intensive
+	process.  It could use even further optimization.
+
+	There isn't any synchronization between the audio and video threads,
+	and system stream timestamps are ignored.  The video is synchronized
+	with audio by using video framerate and elapsed time.  They are
+	are synchronized well enough for short clips, but long movies, or
+	movies with visual audio cues (like speech) don't look very good.
+
+
+Requirements:
+
+	* Simple DirectMedia Layer v0.10.2 or newer
+		http://www.devolution.com/~slouken/SDL/
+	* Qt 1.44 is needed for ZZplayer
+		http://www.troll.no/
+	* Kde is needed for ZZplayer
+		http://www.kde.org
+
+
+Reporting bugs:
+
+	Please report any bugs and/or fixes to nicolas.vignal@fnac.net.
+
+
+Special thanks:
+	cougar <cougar@team-vga.com> for the ZZplayer Mpeg sample and icons.
+	site http://www.team-vga.com
+
+
+Links:
+
+	Berkeley MPEG player   	http://bmrc.berkeley.edu/frame/research/mpeg
+	Splay                  	http://my.netian.com/~polarb
+	SDL                    	http://www.devolution.com/~slouken/SDL
+	Qt GUI library         	http://www.troll.no
+	Kde environement	http://www.kde.org
+	Lokigames		http://www.lokigames.com

@@ -1,0 +1,85 @@
+# configure.in
+# Original Author was kalle@kde.org
+# Modified by Stephan Kulow and Janos Farkas
+# Modified by Kurt Granroth (kurt_granroth@pobox.com)
+
+dnl Process this file with autoconf to produce a configure script.
+
+AC_INIT(acinclude.m4) dnl a source file from your sub dir
+AC_CANONICAL_SYSTEM 
+AC_ARG_PROGRAM
+
+dnl This is your app name and version number.  Change as necessary
+AM_INIT_AUTOMAKE(zzplayer, 0.4)
+
+dnl make $KDEDIR the default for the installation
+AC_PREFIX_DEFAULT(${KDEDIR:-/opt/kde})
+
+dnl generate the config header
+AM_CONFIG_HEADER(config.h) dnl at the distribution this done
+
+AC_CHECK_COMPILERS
+KDE_PROG_LIBTOOL
+
+dnl for NLS support. Call them in this order!
+dnl WITH_NLS is for the po files
+AM_KDE_WITH_NLS
+
+dnl I need to check for libsocket before testing X
+AC_CHECK_LIB(socket, socket, [LIBSOCKET="-lsocket -lnsl"]) dnl for Solaris
+AC_SUBST(LIBSOCKET)
+AC_PATH_KDE
+
+AC_LANG_C
+dnl Checks for libraries. 
+AC_CHECK_LIB(compat, main, [LIBCOMPAT="-lcompat"]) dnl for FreeBSD
+AC_SUBST(LIBCOMPAT)
+AC_CHECK_LIB(crypt, main, [LIBCRYPT="-lcrypt"]) dnl for BSD
+AC_SUBST(LIBCRYPT)
+
+AC_LANG_CPLUSPLUS
+dnl Checks for header files.
+AC_HEADER_DIRENT
+AC_HEADER_STDC
+AC_CHECK_HEADERS(fcntl.h sys/time.h unistd.h sys/types.h sys/stat.h re_comp.h net/errno.h getopt.h sys/param.h)
+AC_CHECK_FUNCS(flock)
+
+dnl Check for SDL
+SDL_VERSION=1.0.1
+AM_PATH_SDL($SDL_VERSION,
+            :,
+    		AC_MSG_ERROR([*** SDL version $SDL_VERSION not found!])
+)
+CPPFLAGS="$CPPFLAGS $SDL_CFLAGS"
+LIBS="$LIBS $SDL_LIBS"
+
+AC_MSG_CHECKING(for SMPEG headers and libraries)
+have_smpeg=no
+AC_TRY_COMPILE([#include <smpeg/smpeg.h>],[],[have_smpeg=yes])
+AC_MSG_RESULT($have_smpeg)
+if test x$have_smpeg = xyes; then
+        CPPFLAGS="$CPPFLAGS -DMP3_MUSIC"
+        LIBS="$LIBS -lsmpeg"
+else
+        AC_MSG_ERROR([*** smpeg not found!])
+        exit 0
+fi
+
+dnl Checks for typedefs, structures, and compiler characteristics.
+AC_HEADER_TIME
+
+dnl check if the compiler has bool
+AC_CHECK_BOOL
+
+dnl Checks for library functions. MISCOBJS is for kdecore
+AC_CHECK_SETENV
+
+dnl output files
+dnl Add all your Makefiles here. These are created by configure
+AC_OUTPUT(Makefile \
+         zzplayer/Makefile \
+	 zzplayer.spec \
+         zzplayer/pics/Makefile \
+         zzplayer/doc/Makefile \
+         zzplayer/doc/en/Makefile \
+         po/Makefile)

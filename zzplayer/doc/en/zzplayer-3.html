@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>The ZZplayer Handbook: Installation</TITLE>
+<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="keywords" CONTENT="ZZplayer">
+<META NAME="description" CONTENT="Documentation for ZZplayer">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" LINK="#8E2727" VLINK="#8E2727" TEXT="#000000" > 
+<FONT FACE="Arial,Helvetica">
+<TABLE BORDER=0 CELLSPACING=2>
+<TR><TD>
+<IMG SRC="zzplayer.xpm" BORDER="0" ALT="ZZplayer" ALIGN="TEXTTOP">
+</TD><TD>
+<FONT SIZE="+2"><B>player</B></FONT><BR><FONT SIZE="-1">Version
+0.3</FONT>
+</TD></TR>
+</TABLE>
+<HR WIDTH="600" SIZE=2 ALIGN="LEFT" NOSHADE>
+
+<TABLE WIDTH="600" CELLSPACING=0 CELLPADDING=0>
+<TR>
+<TD>
+<P ALIGN="RIGHT">
+
+<A HREF="zzplayer-1.html">Previous</A> <A HREF="zzplayer.html#toc1">Table of Contents</A>
+</P>
+<H3><A NAME="s2">3. Fullscreen</A></H3>
+<P>
+I'm testing the fullscreen mode.<BR>
+Use full-screen mode at you own risks!<BR>
+<BR>
+Fullscreen STILL may have a few bugs.  If it bugs out, you may not have
+any working control over your system aside from telneting in and sysrq..
+Use at your own risk, it uses root privs also, so be careful and review the
+source if you are scared.<BR>
+<BR>
+Also on fullscreen:<BR>
+The way fullscreen mode works is by asking the X-server for the smallest
+available resolution that is bigger than the mpeg it has in it's config and
+using that, the display will not be fullscreen if you do not have sufficiently
+small modes available. These modes may be dangerous to your configuration, be
+careful and edit them to whatever you wish.  They CAN damage hardware not
+designed to take it.<BR>
+<BR>
+Usually, it is a good idea to make sure that the following
+resolutions are defined in your XFree86 configuration file
+(XF86Config):<BR>
+<BR>
+   Mode "320x240"<BR>
+    DotClock   15.750<BR>
+    HTimings   320 336 384 400<BR>
+    VTimings   240 244 246 262<BR>
+     Flags        "Doublescan"<BR>
+   EndMode<BR>
+<BR>
+   Mode "352x240"<BR>
+    DotClock   15.750<BR>
+    HTimings   352 368 416 432<BR>
+    VTimings   240 244 246 262<BR>
+     Flags        "Doublescan"<BR>
+   EndMode<BR>
+<BR>
+   Mode "352x280"<BR>
+    DotClock   15.750<BR>
+    HTimings   352 368 416 432<BR>
+    VTimings   280 288 286 302<BR>
+     Flags        "Doublescan"<BR>
+   EndMode<BR>
+<BR>
+   Mode "352x288"<BR>
+    DotClock   15.750<BR>
+    HTimings   352 368 416 432<BR>
+    VTimings   288 296 290 310<BR>
+     Flags        "Doublescan"<BR>
+   EndMode<BR>
+<BR>
+Don't forget to add all those modes in the Modes line for each<BR>
+Display subsection of the Screen section.
+<BR>
+Note: The timing indicated here may be inadequate for your graphic
+board and/or monitor.  Please refer to the XFree86 Howto, FAQ and
+documentation for configuring XFree86 and setting video modes:<BR>
+<BR>
+<A HREF="http://www.xfree86.org/">http://www.xfree86.org/</A><BR>
+<A HREF="http://www.xfree86.org/FAQ/">http://www.xfree86.org/FAQ/</A><BR>
+<A HREF="http://www.xfree86.org/3.3.5/Config.html">http://www.xfree86.org/3.3.5/Config.html</A><BR>
+<BR>
+It is good idea to use "xvidtune" to finetune the video modes
+you are planning to use for the fullscreen video playback.<BR>
+SDL currently relies on XFree86's DGA extension, therefore
+full-screen will only work with XFree86, not with other X servers
+like XiG's Accelerated-X.<BR>
+<BR>
+Full-screen only works on a local display.  Because of a
+limitation in the DGA of XFree86 3.2, it won't work with DISPLAY
+set to "localhost:0.0", even though this is the local display.
+Environment variable DISPLAY should be set to ":0.0".<BR>
+To check: $ printenv DISPLAY<BR>
+The full-screen mode will use the closest XFree86 mode that matches
+or is larger than the size of the video.<BR>
+<BR>
+<BR>
+XFree86 must run in 16, 24 or 32-bit depth.<BR>
+<BR>
+Current limitations & Known problems<BR>
+------------------------------------<BR>
+<BR>
+Full-screen mode is currently not available in 8-bit depth.<BR>
+<BR>
+Full-screen mode may not look good if the video size is not
+a multiple of 16.<BR>
+<BR>
+To enter full-screen mode use the button Fullscreen.<BR>
+<BR>
+To exit full-screen mode and return to normal display mode, press any key or click the mouse.<BR>
+</P>
+
+<P ALIGN="RIGHT">
+
+<A HREF="zzplayer-2.html">Previous</A> <A HREF="zzplayer.html#toc1">Table of Contents</A>
+</P>
+<CENTER>
+<HR WIDTH="100%" SIZE=3 ALIGN=CENTER NOSHADE>
+</CENTER>    
+</FONT>
+
+</TR></TD></TABLE>
+</BODY>
+</HTML>

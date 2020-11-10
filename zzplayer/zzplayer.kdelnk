@@ -1,0 +1,16 @@
+# KDE Config File
+[KDE Desktop Entry]
+Name[fr]=ZZplayer
+SwallowExec=
+SwallowTitle=
+Comment[fr]=
+BinaryPattern=
+Name=ZZplayer
+MiniIcon=zzplayer.xpm
+MimeType=video/mpeg;
+Comment=
+Exec=zzplayer %f
+Icon=zzplayer.xpm
+DocPath=zzplayer/zzplayer.html
+Type=Application
+Terminal=0

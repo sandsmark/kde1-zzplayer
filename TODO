@@ -1,0 +1,32 @@
+ZZplayer TODO
+--------------
+
+
+Add video scroll-bar
+
+Check smpeg in configure script
+Rewrite code
+Nice icons in buttons
+2 icons for the pause button
+Add label for percent volume
+Static compile
+position bug
+disable sound when no sound in video
+can resize zzplayer
+
+Dont stop the mpeg when options change (perhaps video lock)
+
+Rewrite code cleany:
+	organization
+	fileName in private
+
+FAQ
+	No Mpeg 2 or Mpeg 4 support
+	No synchronisation support
+
+DOC no xpm cause netscape can't load xpm
+
+
+more idea ? Tell me more
+
+		nicolas.vignal@fnac.net

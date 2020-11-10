@@ -1,0 +1,14 @@
+Begin3
+Title:          ZZplayer
+Version:        0.4
+Entered-date:   
+Description:    Mpeg I video player
+Keywords:       KDE Qt Mpeg I video player
+Author:         Nicolas Vignal <nicolas.vignal@fnac.net>
+Maintained-by:  Nicolas Vignal <nicolas.vignal@fnac.net>
+Home-page:      http://www.chez.com/tsc/zzplayer/zzplayer.html
+Alternate-site: 
+Primary-site:
+Platform:       Linux. Needs Qt, KDE, SDL and smpeg
+Copying-policy: GPL
+End
